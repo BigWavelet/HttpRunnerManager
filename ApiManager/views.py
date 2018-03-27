@@ -393,8 +393,6 @@ def upload(request):
     elif request.method == 'POST':
         obj = request.FILES.get('file')
         temp_save = os.path.join('upload', obj.name)
-        if '\\' in temp_save:
-            temp_save = temp_save.replace('\\\\', '\\')
         f = open(temp_save, 'wb')
         for line in obj.chunks():
             f.write(line)
